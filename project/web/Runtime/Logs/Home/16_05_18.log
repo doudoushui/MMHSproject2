@@ -1,0 +1,255 @@
+[ 2016-05-18T11:10:47+08:00 ] 127.0.0.1 /Home/Regin/index.html
+ERR: 无法加载控制器:Regin
+
+[ 2016-05-18T11:16:16+08:00 ] 127.0.0.1 /Home/Register/index.html
+ERR: 模板不存在:./web/Home/View/Register/index.html
+
+[ 2016-05-18T12:03:19+08:00 ] 127.0.0.1 /Home/Reister/index.html
+ERR: 无法加载控制器:Reister
+
+[ 2016-05-18T12:03:27+08:00 ] 127.0.0.1 /Home/Registerr/index.html
+ERR: 无法加载控制器:Registerr
+
+[ 2016-05-18T12:43:48+08:00 ] 127.0.0.1 /Home/Regist/index.html
+ERR: 无法加载控制器:Regist
+
+[ 2016-05-18T12:51:10+08:00 ] 127.0.0.1 /Home/Index/%7BU:('Home/Fashion/index')%7D
+ERR: 非法操作:{U:('Home
+
+[ 2016-05-18T12:51:59+08:00 ] 127.0.0.1 /Home/Index/%7BU:('Home/Fashion/index')%7D
+ERR: 非法操作:{U:('Home
+
+[ 2016-05-18T14:35:21+08:00 ] 127.0.0.1 /Home/Regin/index.html
+ERR: 无法加载控制器:Regin
+
+[ 2016-05-18T19:59:16+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2016-05-18T19:59:20+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.023002s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 6,6   [ RunTime:0.006000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2016-05-18T19:59:20+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 12,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-05-18T19:59:21+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 18,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T19:59:21+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 24,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T19:59:21+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.016001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 30,6   [ RunTime:0.006001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-05-18T20:00:39+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-05-18T20:01:10+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.011001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.008000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:02:58+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:03:02+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.011001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:03:06+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 6,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:03:07+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 12,6   [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:03:07+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 18,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:03:08+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.005000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.024001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 24,6   [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.012000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012000s ]
+
+[ 2016-05-18T20:46:15+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.047003s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.024001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-05-18T20:46:28+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.026001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-05-18T20:46:57+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-05-18T20:47:34+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.005000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-05-18T20:47:50+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.014001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2016-05-18T20:50:07+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2016-05-18T20:50:12+08:00 ] 127.0.0.1 /Home/Job/ajax.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] A session had already been started - ignoring session_start() C:\wamp\www\project\ThinkPHP\Common\functions.php 第 1190 行.
+SQL: SHOW COLUMNS FROM `hs_job` [ RunTime:0.011001s ]
+SQL: SELECT * FROM `hs_job` ORDER BY id LIMIT 0,6   [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

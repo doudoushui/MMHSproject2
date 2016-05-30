@@ -1,0 +1,170 @@
+﻿<extend name="Public/index"/>
+<block name="content">
+
+   <style>
+   #ul > ul{
+    width: 33%;
+    float: left;
+    padding: 20px;
+ 
+   }
+   #items{
+    border:1px solid #acf;
+    border-radius: 50px;
+    margin-top: 50px;
+   
+   }
+   </style>
+
+   <!-- //轮播 -->
+   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top:25px;">
+     <!-- Indicators -->
+     <ol class="carousel-indicators">
+       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+       <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+     </ol>
+
+     <!-- Wrapper for slides -->
+     <div class="carousel-inner" role="listbox">
+       <div class="item active">
+         <center>
+          <img src="__PUBLIC__/images/1.jpg" style="width:1000px;height:300px;" alt="...">
+         </center>
+         <div class="carousel-caption">
+          恋爱吧
+         </div>
+       </div>
+
+       <div class="item">
+    		 <center>
+         <img src="__PUBLIC__/images/2.jpg" style="width:1000px;height:300px;" alt="...">
+         </center>
+         <div class="carousel-caption">
+           约会吧
+         </div>
+       </div>
+
+        <div class="item">
+        <center>
+         <img src="__PUBLIC__/images/3.jpg" style="width:1000px;height:300px;" alt="...">
+         </center>
+         <div class="carousel-caption">
+           结婚吧
+         </div>
+       </div>
+     
+     </div>
+
+     <!-- Controls -->
+     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+       <span class="sr-only">Previous</span>
+     </a>
+     <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+       <span class="sr-only">Next</span>
+     </a>
+   </div>
+   <!-- END 轮播 -->
+
+
+   <!-- 遍历 -->
+    <!-- <div id="all"> -->
+  <div style="width:1200px;height:auto;margin: 0 auto;">
+
+  <!--   <li id="items" style="width:1000px;display:none;margin-top:10px; margin-left:130px; width: 200px;height: 320px;border:solid 1px #ccc;padding: 10px;text-align:center;">
+
+       <img src="/Public/Uploads/2016-05-16/5739aebb87825.jpg" style="height:100px;" alt="...">
+      <div class="caption">
+        <h3>潮流动态</h3>
+        <span>创建时间</span>
+        <p><a href="{:U('Home/Fashion/msg')}" class="btn btn-primary" role="button">详情</a></p>
+      </div>
+    </li> -->
+
+    <div id="ul">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <!-- <ul></ul> -->
+   </div>
+     <div style="clear:both;"></div>
+  </div>
+  
+  
+  
+  <script type="text/javascript" src="__PUBLIC__/Home/Scripts/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  
+  //全局配置
+  var p = 1;//页码信息
+  var isLoading = false;
+  var url = "{:U('Home/Fashion/ajaxfashion')}";
+
+   P = requestFashion();//调用函数
+   // console.log(p);
+    //封装函数发起请求
+    function requestFashion(){
+     //加载请求是关门
+      isLoading = true;
+      //发起请求
+      $.get(url,{p:p},function(data){
+
+        // var_dump(data);
+        //循环遍历创建元素
+        for (var i = 0; i < data.length; i++) {
+          // var_dump(data.length);
+          // console.log(data);
+          //创建元素
+        // var newLi = $('#item').clone();
+         var fid = data[i]['id'];
+        // var newLi = $('<li id="items" style="display:none;margin-right:30px;">\n\
+        //        <center><img style="width:80%;"src="'+data[i]['fpic']+'" alt="..."></center> \n\
+        //         <h3>潮流动态:'+data[i]['title']+'</h3>\n\
+        //         <span>发布时间:&nbsp;'+data[i]['ftime']+'</span>\n\
+        //         <button style="color:#0ef;margin-left:50px;background-color:#f11;width:100px;height:40px;"><a href="{:U('Home/Fashion/msg/id/+fid')}" >详情</a></button>\n\ </li>');
+        
+
+
+        var newLi = $('<li id="items" style="display:none;margin-right:30px;border:1px solid yellow;margin-top:10px;">\n\
+                   <center><a href="msg/id/'+fid+'"><img style="width:70%;"src="'+data[i]['fpic']+'" alt="..."></a></center>\n\
+                   <div class="caption"><h2 style="background:#FF00C6;color:#fff;">潮流动态:'+data[i]['title']+'</h2>\n\
+                    <p>发布者:&nbsp;'+data[i]['publisher']+'</p>\n\
+                    <span>发布时间:&nbsp;'+data[i]['ftime']+'</span>\n\
+                     <center><a href="msg/id/'+fid+'"><button style="color:#F5AC47;background-color:#0C589A;width:100px;height:40px;border-radius:30px;">详&nbsp;情</button></a></div></center></li>');
+        //显示
+        newLi.show();
+
+        var index = i%3;
+        //插入到ul中
+          $('#ul >ul:eq('+index+')').append(newLi);
+
+      };
+      //让页码自增
+      // p++;
+      //打开
+      isLoading = false;
+      
+    },'json');
+      return ++p;
+
+  }
+
+  //绑定滚动事件
+  $(window).scroll(function(){
+    //检测当前是否正在发起请求
+    if(isLoading){return;}
+    //获取整个文档的高度
+    var sH = $(document).height();
+    //获取页面滚动高度
+    var sT = $(window).scrollTop();
+    //可视区域的高度
+    var  cH = $(window).height();
+    if(sH <= sT+cH+300){
+      requestFashion();
+    }
+  })
+  </script>
+</block>
+

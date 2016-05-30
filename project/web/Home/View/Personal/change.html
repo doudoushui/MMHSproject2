@@ -1,0 +1,171 @@
+<extend name="Public/index1" />
+<block name="content">
+<style type="text/css">
+  a:hover{
+    text-decoration:none;
+  }
+  .gr:hover{background:#ccc}
+</style>
+<div style="width:80%;margin:20px auto;height:800px;">
+  <div style="width:250px;float:left">
+     <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px" class="gr"><span style="margin-left:10px;font-size:20px" ><a href="{:U('Home/Personal/index')}" style="padding:10px 150px 7px 7px">个人中心</a></span></div>
+     <div style="width:250px;height:278px;border:1px solid #ccc;margin-top:20px">
+       <div style="width:250px;height:250px">
+         <?php
+            if(empty($xj[pic])){
+              echo '<img src="__PUBLIC__/Home/Images/touxiang.jpg" width="248px" height="248px" style="border-radius:50%;">';
+            }else{
+              echo '<img src="'.$xj[pic].'" width="248px" height="248px" style="border-radius:50%;" >';
+            }
+         ?>
+       </div>
+       <div style="width:250px;height:30px;line-height:30px;text-align:center"><span style="font-size:18px">用户名:</span>{$xj.username}</div>
+     </div>
+     <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Personal/information')}" style="padding:10px 150px 7px 7px">个人资料</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px"><span style="margin-left:10px;font-size:20px;color:#ccc">修改密码</span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Order/index')}" style="padding:10px 150px 7px 7px">个人订单</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Orderby/index')}" style="padding:10px 130px 7px 7px">未完成订单</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Order/delivered')}" style="padding:10px 130px 7px 7px">已发货订单</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Order/unfilled')}" style="padding:10px 130px 7px 7px">未发货订单</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Order/received')}" style="padding:10px 130px 7px 7px">已收货订单</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Order/assess')}" style="padding:10px 150px 7px 7px">我的评价</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Orderaddress/index')}" style="padding:10px 150px 7px 7px">收货地址</a></span></div>
+       <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px" class="gr"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Orderaddress/addaddress')}" style="padding:10px 110px 7px 7px">添加收货地址</a></span></div>
+     <div style="width:250px;height:500px;border:1px solid #ccc;margin-top:20px">
+       <div style="width:220px;height:40px;margin:10px;font-size:18px">最新活动</div>
+       <div style="width:220px;height:240px;"><img src="__PUBLIC__/Home/img/1.jpg"></div>
+     </div>
+  </div>
+  <script type="text/javascript">
+  function func(){
+    alert('1111');
+    // if()
+  }
+  </script>
+   <div style="width:700px;float:right;border:1px solid #ccc">
+    
+      <form class="form-horizontal" action="{:U('Home/Personal/uchange')}" method="post">
+          <div class="form-group">
+          <!-- <input type="hidden" name="id"> -->
+            <label class="col-sm-2 control-label">旧密码:</label>
+            <div class="col-sm-10">
+              <input type="password" name="pwd" class="form-control"><span></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" name="pwd1" class="form-control"><span></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">确认新密码:</label>
+            <div class="col-sm-10">
+              <input type="password" name="repwd" class="form-control"><span></span>
+            </div>
+          </div>
+          <!-- <div class="form-group">
+            <label class="col-sm-2 control-label">验证码:</label>
+            <div class="col-sm-10">
+              
+            </div>
+          </div> -->
+          <!-- <div class="form-group">
+            <label class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-10">
+              <input type="text" name="email" class="form-control"><span></span>
+            </div>
+          </div> -->
+          
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default" style="color:#000">提交</button>
+            </div>
+          </div>
+      </form>
+     
+  </div>
+
+<script type="text/javascript">
+  	//声明全局变量
+	var CUSER= true;
+		//绑定表单提交事件
+		$('form').submit(function(){
+			CUSER = true;
+			//丧失焦点事件
+			$('input').trigger('blur');
+			//检验是否正确
+			if(!CUSER){
+				return false;
+			}
+			//阻止默认行为
+			return  true;
+		})
+
+		//绑定获取焦点事件,显示提示信息
+		$('input').focus(function(){
+			//获取属性
+			var str = $(this).attr('readmin');
+			//设置文本
+			$(this).next().html(str).css('color','green');
+			//设置样式
+			$(this).attr('class','cur');
+
+		})
+
+		
+
+
+		//密码
+		$('input[name=pwd1]').blur(function(){
+			var pass = $(this).val();
+			var reg = /^\w{6,18}$/;
+			if(!reg.test(pass)){
+				$(this).next().html('密码格式不正确').css('color','red');
+				//设置样式
+				$(this).addClass('error');
+				CUSER = false;
+				return false;
+			}else{
+				$(this).next().html('√').css('color','green');
+				//设置样式
+				$(this).attr('class','cur');
+			}
+		})
+
+		//密码
+		$('input[name=repwd]').blur(function(){
+			var pass = $(this).val();
+			var password = $('input[name=pwd1]').val();
+			//alert(password);
+			if(pass == password){
+				$(this).next().html('√').css('color','green');
+				//设置样式
+				$(this).attr('class','cur');
+			}else{
+				$(this).next().html('两次密码不一致').css('color','red');
+				//设置样式
+				$(this).addClass('error');
+				CUSER = false;
+			}
+		})
+
+		//邮箱
+		// $('input[name=email]').blur(function(){
+		// 	var email = $(this).val();
+		// 	var reg = /^\w+@\w+\.(com|cn|org|com.cn|net)$/;
+		// 	if(reg.test(email)){
+		// 		$(this).next().html('√').css('color','green');
+		// 		//设置样式
+		// 		$(this).attr('class','cur');
+		// 	}else{
+		// 		$(this).next().html('邮箱格式不正确').css('color','red');
+		// 		//设置样式
+		// 		$(this).addClass('error');
+		// 		CUSER = false;
+
+		// 	}
+		// })
+</script>
+</block>

@@ -1,0 +1,86 @@
+<extend name="Cate/index"/>
+<block name="content">
+<h2 style="color:#ff4466;font-size:40px;"><center></center></h2>
+<div class="container">
+  <div class="row">
+    <h1 style="color:#f46;">购物车 <small><b>看看我的宝贝呦</small></b></h1>
+  </div>
+  <div class="row">
+   <!--  <?php if (empty($_SESSION['cart'])): ?>
+        <h3 style="color:#f46;">您的购物车空空如也......</h3>
+        <p><a href="{:U('Home/Goods/index')}">请继续购物呦~~</a></p>
+      <?php else: ?> -->
+      <table class="table">
+          <tr>
+            <th>图片</th>
+            <th>商品名</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+          </tr>
+        
+        <tr>
+          <td>
+            <a href="">
+              <img src="{$ss.gpic}" style="width:80px;">
+            </a>
+          </td>
+          <td><a href="">{$v.gname}</a></td>
+          <td>{$v.price}</td>
+          <td>
+            <a href="{:U('Home/Cart/jian',array('goods_id'=>$info['goods_id']))}?zan={$info.zan}"><span class="glyphicon glyphicon-minus"></span></a>
+            [{$v.qty}]
+            <a href="{:U('Home/Goods/jia')}"><span class="glyphicon glyphicon-plus"></span></a>
+          </td>
+          <td><?php  $v.price *$v.qty  ?></td>
+          <td>
+            <a href="{:U('Home/Cart/index')}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"> 删除</span></a></td>
+          </tr>
+          <!-- <?php $total +=  $v['price'] *$v['qty'];//总价?> -->
+        <!-- </tr> -->
+      
+          <tr>
+            <td colspan="6" class="text-right">
+              <a href="{:U('Home/Goods/index')}"class="btn btn-info"><span class="glyphicon glyphicon-briefcase"style="height:30px;width:120px;"> 继续购物</span></a>
+              <a href="{:U('Home/Cart/index')}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"style="height:30px;width:120px;"> 清空购物车</span></a>
+              <a href="{:U('Home/Cart/index')}" class="btn btn-warning"><span class="glyphicon glyphicon-shopping-cart"style="height:30px;width:120px;"> 总计:<?php echo $total; ?></span></a>
+              <a href="{:U('Home/Cart/index')}" class="btn btn-primary"><span class="glyphicon glyphicon-send"style="height:30px;width:120px;"> 去结算</span></a>
+            </td>
+          </tr>
+        </table>
+    </div>
+</div>
+
+ <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  function changesrc (obj) {
+    // alert(obj.src);
+    //获取大图的src
+    var big = document.getElementById('big');
+    //修改大图的src
+    big.src = obj.src.replace('50_','');
+  }
+  function plus(){
+    var ipt = document.getElementById('num');
+    ipt.value = parseInt(ipt.value) + 1;
+    <?php 
+            $stock="select stock from hs_goods where `id`='$goods_id' ";
+          //  $rows=query($stock);
+            $kc=$rows['0']['stock'];
+
+     ?>
+    if (ipt.value>= parseInt(<?php echo $kc ?>)) {
+      ipt.value = parseInt(<?php echo $kc ?>);
+      alert('不能再加');
+    }
+  }
+  function minus(){
+    var ipt = document.getElementById('num');
+    ipt.value = parseInt(ipt.value) - 1;
+    if (ipt.value < 1 ) {
+      ipt.value = 1;
+    }
+  }
+  </script>
+</block>

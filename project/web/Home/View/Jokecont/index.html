@@ -1,0 +1,174 @@
+﻿<extend name="Public/index"/>
+<block name="content" >
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"> </script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+ <div style="width:100%;height:100%;background:pink;">
+  <!-- <div style="width:100%;height:100%;background-image:url('__PUBLIC__/Home/Images/200881813224699855.jpg');no-repeat;" > -->
+   <div style="width:600px;height:50px;font-size:35px;line-height:40px;">
+     <div style="height:30px;"></div>
+     <center style="margin-top:20px;"><img src="{$users[0]['joke_pic']}" style="margin-left:30px;width:40px;height:40px;">&nbsp;&nbsp;&nbsp;标题:<b>&nbsp;&nbsp;&nbsp;{$users[0]['title']}<b></center><br>
+    </div>
+   <div style="width:800px;height:40px;margin-top:60px;margin-left:300px;">
+     <div style="width:155px;height:40px;float:left;">点赞量:{$users[0]['zanzan']}</div>
+     <div style="width:145px;height:40px;float:left;">浏览量:{$users[0]['look_num']}</div>
+     <div style="width:160px;height:40px;float:left;">作者:{$users[0]['author']}</div>
+     <div style="width:300px;height:40px;float:left;">发布时间:{$users[0]['joke_time']}</div>
+   </div>
+   <div style="width:1000px;height:260px;">
+    <p style="font-size:35px;line-height:40px;background:#e1e1e1;">乐闻内容:<p> 
+    <p>
+       <?php echo htmlspecialchars_decode($users[0]['joke_msg']);?>
+    </p>
+   </div>
+   <div style="width:1200px;height:110px;font-size:35px;line-height:40px;"><center><br>
+    <a href="{:U('Home/Jokecont/zanzan',array('id'=>$users[0]['id']))}?zanzan={$users[0]['zanzan']}" class="btn btn-warning btn-info" type="button"><i class="fa fa-wrench"></i> 我要点赞</a>
+    <!-- <a href="{:U('Home/Jokecont/talk')}" class="btn btn-info btn-info" type="button"><i class="fa fa-wrench"></i> 发表笑话</a>
+     --><a href="{:U('Home/Joke/index',array('id'=>$vo['id']))}" class="btn btn-warning btn-info" type="button"><i class="fa fa-wrench"></i> 返回上页</a>
+    <a id="btn" class="btn btn-primary btn-info" type="button"><i class="fa fa-wrench"></i> 猜谜游戏</a>
+    <button type="button"class="btn btn-warning btn-info">答案</button>
+    <a id="chou" class="btn btn-danger btn-info" type="button"><i class="fa fa-wrench"></i> 幸运抽奖</a>&nbsp;&nbsp;&nbsp;&nbsp;</center>
+    <center style="font-size:30px;"><span id="uname" style="font-size:14px;">&nbsp;&nbsp;&nbsp;小试牛刀</span></center>
+   </div>
+   <div style="width:1000px;height:250px;margin-top:20px;">
+     <div style="width:180px;height:250px;float:left;">
+    <pre style="width:170px;display:none;margin-left:40px;">
+     1 .动物园园长
+     2 .电影中的人
+     3 .螺帽
+     4 .遗书
+     5 .右耳朵
+     6 .泪水
+     7 .手，脚
+     8 .三长两短
+     9 .鹅是企鹅
+     10.CD
+    </pre>
+     </div>
+    <div style="width:800px;height:400px;margin-left:10px;margin-bottom:20px;float:left;">
+      <form role="form"action="{:U('Home/jokecont/insert')}" method="post"enctype="multipart/form-data" style="height:300px;width:800px;">
+       <input type="hidden" name="joke_id" value="{$users[0]['id']}">
+       <input type="hidden" name="talk_time">
+        <input type="hidden" name="joke_author" value="匿名">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我要评论:
+        <script id="editor" name="talk" type="text/plain" style="width:700px;height:200px;margin-left:50px;margin-top:5px;"></script> 
+        <br><button class="btn btn-info" type="submit" style="width:80px;height:25px;float:right;margin-bottom:4px;margin-right:53px;">发表</button><br>
+       </form>
+     </div>
+   </div>
+   <div style="width:1000px;height:100%;margin-top:170px;border:1px solid #e1e1e1;">
+      <div class="form-group">
+         <table class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dataTables-example_info"> 
+           <tr role="row">
+                <th class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 40px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">评论者</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 300px;" aria-label="Browser: activate to sort column ascending">评论内容</th>
+                <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 200px;" aria-label="CSS grade: activate to sort column ascending">评论时间</th>
+                <!-- <th class="sorting" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" style="width: 100px;" aria-label="CSS grade: activate to sort column ascending">操作</th> -->
+              </tr>           
+          <foreach name="talks" item="vo" key="k" >
+               
+             <tr class="gradeA odd" role="row">
+              <td class="sorting_1 sid">{$vo.joke_author}</td> 
+              <td class="sorting_1 sid">{$vo.talk}</td> 
+              <td class="sorting_1 sid">{$vo.talk_time}</td> 
+              <!-- <td class="center">
+              <button class="btn btn-danger btn-del  btn-primary" type="button"><i class="fa fa-times"></i> 回复</button><br>
+                 </td> -->
+               </tr>
+            </foreach> 
+          </table>
+         </div>
+   </div>
+</div>
+
+<script type="text/javascript">
+  //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+   $(document).ready(function(){
+  $("button:eq(1)").click(function(){
+  $("pre").toggle();
+  });
+});
+    $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    var  chou = document.getElementById('chou');
+    //
+    chou.onclick = function(){
+      var num = rand(1,100);
+      //判断
+      if(num >= 90 && num <= 100){
+        alert('您今天的幸运色是:红色,红色是热烈、冲动、强有力的色彩');
+      }else if(num >= 80 && num <= 89){
+        alert('您今天的幸运色是:橙色,橙色是欢快活泼的光辉色彩，是暖色系中最温暖的色,橙色象征着温暖与活力');
+      }else if(num >= 70 && num <= 79){
+        alert('您今天的幸运色是:黄色,黄色的灿烂、辉煌，有着太阳般的光辉，象征着照亮黑暗的智慧之光,黄色象征着华丽、高贵与温馨');
+      }else if(num >= 50 && num <= 69){
+        alert('您今天的幸运色是:绿色,鲜艳的绿色是一种非常美丽、优雅的颜色，它生机勃勃，象征着生命,绿色象征着青春与大自然');
+      }else if(num >= 40 && num <= 49){
+        alert('您今天的幸运色是:蓝色,蓝： 沉静、幽远，欧洲为对国家之忠诚象征,蓝色象征着纯洁、梦想');
+      }else if(num >= 20 && num <= 39){
+        alert('您今天的幸运色是:靛色,靛色:代表祥和、清凉、深远、舒畅,靛色象征着清新和舒畅');
+      }else {
+        alert('您今天的幸运色是:紫色,它美丽而又神秘，给人深刻的印象，它既富有威胁性,又富有鼓舞性,紫色象征着优雅、高贵、魅力和神秘');
+      }
+    }
+    function rand(m,n){
+      return (Math.ceil(Math.random()*100000)%(n-m+1))+m;
+    }
+  //定义数组
+  var arr = new Array('1.谁是万兽之王?','2.什么样的人死后还会出现?','3.什么帽不能戴?','4.书店里买不到什么书?','5.大象的左耳朵像什么？','6.什么水永远用不完?','7.什么东西有五个头，但人不觉得它怪呢?','8.家人问医生病人的情况,医生只举起5个手指, 家人就哭了,是什么原因呢?','9.把一只鸡和一只鹅同时放在冰山上，为什么鸡死了鹅没死？','10.什么英文字母让人们喜欢听而且听的人最多?');
+  // 获取元素对象
+  var btn = document.getElementById('btn');
+  var uname = document.getElementById('uname');
+  //获取数组长度
+  var len = arr.length;
+  var itime = null;//定时器全局变量
+  var m = 0;
+  // 绑定事件
+  btn.onclick = function(){
+    func();
+  }
+  //封装随机猜谜方法
+  function func(){
+    //检测数组长度
+    if(len < 1){uname.innerHTML = '全部结束';return;}
+    //检测定时器是否开启
+    if(itime == null){
+      //开始随机
+      itime = setInterval(function(){
+        //随机数组的下标
+        m = Math.ceil(Math.random()*10000)%len;
+        //不停的修改文本
+        uname.innerHTML = arr[m];
+      },120)
+
+      //按钮文本
+      btn.innerHTML = '停止';
+    }else{
+      //已经开始了就要停止
+      //清除定时器
+      clearInterval(itime);
+      //修改定时器全局变量
+      itime = null;
+      //按钮文本
+      btn.innerHTML = '开始';
+      //splice 删除
+      arr.splice(m,1);
+      //修改数组的长度
+      len = arr.length;
+      console.log(arr);
+    }
+    
+   }
+  $('button:eq(0)').click(function(){
+    alert('111111');
+    $('#move').slideToggle(1000);
+  })
+
+  </script>
+
+</block>

@@ -1,0 +1,98 @@
+<extend name="Public/index1" />
+<block name="content">
+
+<style type="text/css">
+	.sh{width:250px;height:50px;background:#ccc;line-height:50px;text-align:center;border-radius:10px;}
+	.sh:hover{background:blue}
+	.sh a{color:#000;font-size:20px;text-decoration:none;padding:12px 52px}
+	.sh a:hover{color:#abcdef;}
+</style>
+<div class="container" style="margin-top:30px">
+		<div class="row">
+			<h1 style="font-size:28px">订单提交 <small>Order Form</small></h1>
+		</div>
+		<form action="{:U('Home/Orderby/insert')}" method="post">
+			<div class="row">
+				<table class="table">
+					<tr>
+						<th style="font-size:20px">确认订单</th>
+					</tr>
+				</table>
+			</div>
+			<div class="row">
+				<table class="table">
+					<div class="form-group">
+							<label class="col-sm-2 control-label" style="font-size:18px">收货人地址</label><br>
+							<?php
+                 if(empty($xj[oname])){
+                  	echo '<div class="sh"><a href="../Orderaddress/addaddress">+ 添加收货地址</a></div>';
+                  }else if($xj['default'] != 0){
+                  	echo '<div class="sh"><a href="../Orderaddress/index"> 选择收货地址</a></div>';
+                  }else{
+                    echo '<div class="col-sm-10">
+										 <div class="form-group">
+										 	<label class="col-sm-2 control-label">姓名</label>
+										 	<div class="col-sm-10">
+										 	 <input type="hidden" name="oname" class="form-control" value="'.$xj[oname].'">
+										 	 <input type="text" name="oname" class="form-control" value="'.$xj[oname].'" disabled>
+										 	</div>
+										 </div>
+										 <div class="form-group">
+										 	<label class="col-sm-2 control-label">手机号</label>
+										 	<div class="col-sm-10">
+										 	 <input type="hidden" name="tel" class="form-control" value="'.$xj[tel].'">
+										 	 <input type="text" name="tel" class="form-control" value="'.$xj[tel].'" disabled>
+										 	</div>
+										 </div>
+										 <div class="form-group">
+										 	<label class="col-sm-2 control-label">地址</label>
+										 	<div class="col-sm-10">
+										 	 <input type="hidden" name="address" class="form-control" value="'.$xj[address].'">
+										 	 <input type="text" name="address" class="form-control" value="'.$xj[address].'" disabled>
+											</div>
+										 </div>';
+		                  }
+                  	
+							?>
+					</div>
+				</table>
+        
+      
+		 	</div>
+			<div class="row">
+				<table class="table">
+					<tr style="font-size:16px">
+						<th>图片</th>
+						<th>商品名</th>
+						<th>价格</th>
+						<th>数量</th>
+						<th>小计</th>
+					</tr>
+						<?php if (empty($_SESSION['cart'])): ?>
+						 <tr><td style="font-size:18px;font-weight:bold;">暂无数据<td></tr>
+						<?php else: ?>
+							<?php $total = 0; ?>
+							<?php foreach ($_SESSION['cart'] as $key => $val): ?>
+								<tr>
+									<td><img src="{$val.gpic}" width="80px"></td>
+									<td>{$val.gname}</td>
+									<td>{$val.price}</td>
+									<td>{$val.qty}</td>
+									<td>{$val['price']*$val['qty']}</td>
+								</tr>
+								<?php $total +=  $val['price'] *$val['qty'];//总价?>
+							<?php endforeach ?>
+
+							<tr>
+								<td colspan="6" class="text-right">
+									<a href="" class="btn btn-default">总计:<?php echo $total; ?></a>
+									<input type="hidden" name="allprice" value="<?php echo $total; ?>">
+									<input type="submit" value="结算" class="btn">
+								</td>
+							</tr>
+						<?php endif ?>
+				</table>
+			</div>
+		</form>
+</div>
+</block>

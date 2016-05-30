@@ -1,0 +1,76 @@
+<extend name="Public/index1" />
+
+<block name="content">
+<style type="text/css">
+  a:hover{
+    text-decoration:none;
+  }
+</style>
+
+<div style="width:80%;margin:20px auto">
+  <div style="width:250px;float:left">
+     <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px"><span style="margin-left:10px;font-size:20px;color:#ccc">客户点评</span></div>
+     <div style="width:250px;height:50px;border:1px solid #ccc;line-height:50px;margin-top:20px"><span style="margin-left:10px;font-size:20px"><a href="{:U('Home/Feedback/add')}" style="padding:10px 110px 7px 7px">填写反馈信息</a></span></div>
+     <div style="width:250px;height:500px;border:1px solid #ccc;margin-top:20px">
+       <div style="width:220px;height:40px;margin:10px;font-size:18px">最新活动</div>
+       <div style="width:220px;height:240px;"><img src="__PUBLIC__/Home/img/1.jpg"></div>
+     </div>
+  </div>
+  <div style="width:700px;float:right;border:1px solid #ccc;">
+     <form action="{:U('Home/Feedback/index')}" method="get">
+        <div style="float:left">
+          <label>显示 
+            <select name="num">
+              <option <?php echo $_GET['num'] == 2 ? 'selected' : '' ?> value="2">2</option>
+              <option <?php echo $_GET['num'] == 5 ? 'selected' : '' ?> value="5">5</option>
+              <option <?php echo $_GET['num'] == 10 ? 'selected' : '' ?> value="10">10</option>
+              <option <?php echo $_GET['num'] == 20 ? 'selected' : '' ?> value="20">20</option>
+            </select>
+            条
+          </label>
+        </div>
+        <div style="float:right">
+          <label>用户名:<input value="{$Think.get.keyword}" name="keyword" type="search" placeholder=""></label>
+          <button type="submit" class="btn btn-info">查询</button>
+        </div>
+     </form>
+  </div>
+  <div style="width:700px;float:right;border:1px solid #ccc">
+     <foreach name="sugs" item="vo" key="k" >   
+      <div style="width:700px;height:300px;margin:10px auto;border-bottom:1px solid #ccc">
+        <div style="width:700px;height:40px;font-size:18px;margin-bottom:10px"><span>点评人:</span>&nbsp;&nbsp;{$vo.username}</div>
+        <div style="width:700px;height:40px;font-size:18px;margin-bottom:10px"><span>点评时间:</span>&nbsp;&nbsp;{$vo.stime}</div>
+        
+        <div style="width:700px;height:200px;font-size:18px">
+         <?php echo htmlspecialchars_decode($vo['smsg']); ?>
+        </div>
+      </div>
+     </foreach>
+  </div>
+<div style="width:700px;border:1px solid #ccc;float:right">
+  <style type="text/css">
+            #pages a,#pages span{ background-color: #fff;
+                    border: 1px solid #ddd;
+                    color: #337ab7;
+                    float: left;
+                    line-height: 1.42857;
+                    margin-left: -1px;
+                    padding: 6px 12px;
+                    position: relative;
+                    text-decoration: none;}
+            #pages span {
+                  background-color: #337ab7;
+                  border-color: #337ab7;
+                  color: #fff;
+                  cursor: default;
+                  z-index: 2;
+                  }
+  </style>
+       
+        <div>
+             <div id="pages">
+                {$pages}
+              </div>
+        </div>
+</div>
+</block>

@@ -1,0 +1,81 @@
+<extend name="Public/index"/>
+<block name="content">
+<div id="page-wrapper">
+  <div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">商品添加</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+  </div>
+  <div class="row">
+   <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Basic Form Elements
+      </div>
+      <div class="panel-body">
+       <div class="row">
+         <div class="col-lg-6">
+          <form role="form" action="{:U('Admin/Goods/insert')}" method="post" enctype="multipart/form-data">
+           <input type="hidden" name="gtime">
+           <!-- <input type="hidden" name="cate_id" value="cid"> -->
+            <div class="form-group">
+              <label>所属分类列表</label>
+              <select name="cate_id" class="form-control">
+                <foreach name="cates" item="v" key="k" > 
+                <option value="{$v.id}" <if condition="$v.id eq $info['pid'] "> selected </if> >{$v.cname}</option>
+                </foreach>
+              </select>
+          
+              
+            <!-- <input type="hidden" name="cate_id"value="{$v.id}"> -->
+            </div>
+            <div class="form-group">
+              <label>商品名</label>
+              <input name="gname"  class="form-control">
+            </div>
+            <div class="form-group">
+              <label>商品图片</label>
+              <input type="file"name="gpic"  >
+            </div>
+            <div class="form-group">
+              <label>价格</label>
+              <input type="text" name="price"  class="form-control">
+            </div>
+            <div class="form-group">
+              <label>商品库存</label>
+              <input type="text" name="stock" class="form-control">
+            </div>
+           <!--  <div class="form-group">
+              <label>商品图片</label>
+              <input name="pic" type="file">
+            </div> -->
+             <div class="form-group">
+               <label>验证码</label>
+               <input name="vcode" class="form-control">
+               <img src="{:U('Admin/Public/CreateVcode')}" onclick="this.src=this.src+'?a'" alt="">
+           </div>
+            <!-- <div class="form-group">
+              <label>验证码</label>
+              <input name="vcode" class="form-control">
+              <img src="{:U('project/Admin/Public/CreateVcode')}" onclick="this.src=this.src+'?a'" alt="">
+            </div> -->
+            <div class="form-group">
+              <label>商品描述</label>
+              <textarea name="msg" rows="3" class="form-control"></textarea>
+            </div>
+              <button class="btn btn-warning" type="reset">重置</button>
+              <button class="btn btn-info" type="submit">提交</button>
+          </form>
+        </div>
+        </div>
+             <!-- /.row (nested) -->
+      </div>
+         <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+   </div>
+   <!-- /.col-lg-12 -->
+  </div>
+</div>
+</block>

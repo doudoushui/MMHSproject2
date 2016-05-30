@@ -1,0 +1,82 @@
+<extend name="Public/index"/>
+<block name="content">
+ <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/ueditor.all.min.js"> </script>
+  <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+  <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+  <script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">招聘信息添加</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+              招聘信息表
+          </div>
+          <div class="panel-body">
+               <div class="row">
+                   <div class="col-lg-6">
+                       <form role="form" action="{:U('Admin/Job/insert')}" method="post" enctype="multipart/form-data">
+                           
+                           <div class="form-group">
+                               <label>岗位名</label>
+                               <input name="work" placeholder="请输入要招聘岗位名称" class="form-control">
+                           </div>
+
+                           <div class="form-group">
+                               <label>招聘人数</label>
+                               <input type="text" name="personnum" placeholder="请输入该岗位要招聘的人数" class="form-control">
+                           </div>
+                           <div class="form-group">
+                               <label>人事联系电话</label>
+                               <input type="text" name="job_phone" placeholder="请输入电话号码" class="form-control">
+                           </div>
+
+                           <div class="form-group">
+                               <label>人事邮箱</label>
+                               <input type="text" name="job_email" placeholder="请输入合法邮箱账号" class="form-control">
+                           </div>
+                           <!-- <div class="form-group">
+                               <label>上传头像</label>
+                               <input name="pic" type="file">
+                           </div> -->
+
+                            <div class="form-group">
+                               <label>工作地点</label>
+                                <input type="text" name="job_address" placeholder="请输入工作地点" class="form-control">
+                           </div>
+
+                            <div class="form-group">
+                               <label>职位简介及职位要求</label>
+                               <textarea name="job_intro" rows="3" placeholder="请输入职位简介及职位要求" class="form-control"></textarea>
+                           </div>
+                           <div class="form-group">
+                               <label>职位信息及要求</label>
+                               <script id="editor" name="jinfo" type="text/plain" style="width:1080px;height:500px;">
+                               </script>
+                           </div>
+                           <button class="btn btn-warning" type="reset">重置</button>
+                           <button class="btn btn-info" type="submit">提交</button>
+                       </form>
+                   </div>
+               </div>
+          <!-- /.panel-body -->
+          </div>
+
+        <!-- /.panel -->
+        </div>
+       <!-- /.col-lg-12 -->
+      </div>
+    </div>
+</div>  
+<script>
+  //实例化编辑器
+  //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+  var ue = UE.getEditor('editor');
+</script>
+</block>

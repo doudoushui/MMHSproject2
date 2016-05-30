@@ -1,0 +1,30 @@
+[ 2016-05-17T21:08:28+08:00 ] 127.0.0.1 /Home/Login
+ERR: 无法加载控制器:Login
+
+[ 2016-05-17T21:09:33+08:00 ] 127.0.0.1 /Home/Login
+ERR: 无法加载控制器:Login
+
+[ 2016-05-17T21:09:36+08:00 ] 127.0.0.1 /Home/Login
+ERR: 无法加载控制器:Login
+
+[ 2016-05-17T21:20:33+08:00 ] 127.0.0.1 /Home/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2016-05-17T21:20:43+08:00 ] 127.0.0.1 /Home/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2016-05-17T21:21:33+08:00 ] 127.0.0.1 /Home/Index/Admin/Index/index
+ERR: 非法操作:Admin
+
+[ 2016-05-17T21:55:37+08:00 ] 127.0.0.1 /Home/Login/index
+ERR: 无法加载控制器:Login
+
+[ 2016-05-17T21:56:38+08:00 ] 127.0.0.1 /Home/Logi
+ERR: 无法加载控制器:Logi
+
+[ 2016-05-17T21:56:42+08:00 ] 127.0.0.1 /Home/Login
+ERR: 无法加载控制器:Login
+
+[ 2016-05-17T23:01:02+08:00 ] 127.0.0.1 /Home/Regin/index.html
+ERR: 无法加载控制器:Regin
+

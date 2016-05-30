@@ -1,0 +1,242 @@
+<extend name="Cate/index"/>
+<block name="content">
+<h2 style="color:#ff4466;font-size:40px;"><center></center></h2>
+<div class="container">
+ <div class="row">
+  <div class="col-md-4 pull-left">
+	<div class="thumbnail s1">
+		<img id="big" style="width:100%;" src="{$info.gpic}">
+		<div class="caption">
+		  <ul class="row mt10">
+		   <?php foreach ($res as $k => $v): ?>
+				<li class="pull-left s3">
+				  <img style="width:50px;margin-left:10px;" src="{$v.iname}" onmouseover="changesrc(this)">
+				</li>
+		   <?php endforeach ?>
+		  </ul>
+		</div>
+	  </div>
+	  <!-- 小图转大图 -->
+	  <!-- <div class="thumbnail s1">
+	    <div id="small">
+		    <img id="big" style="width:100%;" src="{$info.gpic}">
+		  <div id="move"></div>
+	   </div>
+	   <div id="bigger">
+		<img id="bimg" style="position:absolute;" src="{$info.gpic}" >
+	</div>
+		<div class="caption">
+		  <ul class="row mt10" id="uimg">
+		   <?php foreach ($res as $k => $v): ?>
+			<li class="pull-left s3">
+			  <img style="width:50px;margin-left:10px;" src="{$v.iname}" onmouseover="changesrc(this)">
+			</li>
+		   <?php endforeach ?>
+		  </ul>
+		</div>
+	  </div> -->
+	 </div><!-- pull-left -->
+	<div class="col-md-7 pull-right">
+	<div class="row">
+	   <h4 class="col-md-4"style="line-height:40px;width:200px;background:#e1e1e1;">商品名称:</h4>
+	   <h4 style="margin-left:140px;line-height:40px;background:#e1e1e1;color:#f46;">{$info.gname}</h4><br>
+	</div>
+	<div class="row">
+		<h4 class="col-md-4">商品简介:</h4>
+		<h4 style="">{$info.msg}</h4><br>
+	</div>
+	<div class="row">
+		<h1 class="red col-md-6 pull-left">
+		  <p style="color:#f46;"><span class="glyphicon glyphicon-yen"></span> 
+		  {$info.price}</p>
+		</h1>
+		<h1 class="col-md-4 pull-right">
+		  <a href="{:U('Home/Contents/zan',array('id'=>$info['id']))}?zan={$info.zan}" class="red zan"><span class="glyphicon glyphicon-heart"style="color:#f46;"></span>{$info.zan}</a><br><br>
+		</h1>
+	  </div>
+
+	  <form action="{:U('Home/Cart/index')}" method="get">
+		<!-- 隐藏域商品的ID -->
+		<input type="hidden" name="goods_id" value="{$info.id}">
+		<div class="row mt20">
+		  <h4 class="col-md-2">数量:</h4>
+
+		  <div class="col-md-4">
+			<a onclick="minus()">
+			  <button type="button" class="btn col-md-3"><span class="glyphicon glyphicon-minus"></span></button>
+			</a>
+			<div class="col-md-6">
+			  <input id="num" type="num" name="qty" value="1" maxlength="3" class="form-control text-center">
+			</div>
+
+			<a onclick="plus()">
+			  <button type="button" class="btn col-md-3"><span class="glyphicon glyphicon-plus"></span></button>
+			</a>
+		  </div>
+			<span class="col-md-3 h4">库存:{$info.stock}</span>
+			<span class="col-md-3 h4">销量:{$info.sale}</span><br><br>
+		</div><!-- row mt20 -->
+		<div class="row mt30">
+		  <div style="margin-top:30px;height:5px;background-color:#f46;" class="col-md-12 bg-primary"></div>
+		  <hr style="margin-top:40px;">
+		  <div class="col-md-12 mt10">
+			<p class="col-md-7 col-md-offset-2">
+			  <button type="submit" class="btn btn-lg btn-danger pull-left"><span class="glyphicon glyphicon-hand-up"> 立即购买</span></button>
+			
+			<a id="adda" href="{:U('Home/Cart/add',array('goods_id'=>$info['id']))}?qty=1" class="btn btn-lg btn-info pull-right"  onclick="if(confirm('你确定要加入购物车吗?')==false) return false;"><span class="glyphicon glyphicon-shopping-cart"> 加入购物车</span></a>
+
+			</p>
+		  </div>
+		</div>
+	  </form>
+	</div><!-- pull-right -->
+	<div class="caption">
+		  <ul class="row mt10">
+		  <?php foreach ($res as $k => $v): ?>
+			<li class="pull-left s3">
+			  <img style="width:800px;center;margin-left:200px;margin-top:20px;" src="{$v.iname}" ><br><br>
+			</li>
+		   <?php endforeach ?>
+		  </ul>
+		</div>
+	</div>
+   </div>
+   </div>
+ <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  // 获取元素对象
+		var small = document.getElementById('small');
+		var move = document.getElementById('move');
+		var bigger = document.getElementById('bigger');
+		var bimg = document.getElementById('bimg');
+		var simg = document.getElementById('simg');
+
+		//绑定鼠标移动事件
+		small.onmousemove = function(e){
+			//设置样式
+			move.style.display = "block";
+			bigger.style.display = "block";
+
+			//获取鼠标的位置
+			var x = e.clientX;
+			var y = e.clientY;
+
+			//获取small区域的x轴和y轴
+			var _l = small.offsetLeft;
+			var _t = small.offsetTop;
+			//获取小div的宽高
+			var _w = move.offsetWidth/2;
+			var _h = move.offsetHeight/2;
+			//计算新的left和top
+			var newL = x - _l - _w;
+			var newT = y - _t - _h;
+
+			//检测越界
+			if(newL <= 0){
+				newL = 0;
+			}
+			//获取最大的left
+			var maxLeft = small.offsetWidth - move.offsetWidth;
+			if(newL >= maxLeft){
+				newL = maxLeft;
+			}
+			if(newT <= 0){
+				newT = 0;
+			}
+			//获取最大的top
+			var maxTop = small.offsetHeight - move.offsetHeight;
+			if(newT >= maxTop){
+				newT = maxTop;
+			}
+			//设置小div的top和left
+			move.style.left = newL + 'px';
+			move.style.top = newT + 'px';
+
+			//计算移动的比例
+			var sw = small.offsetWidth;
+			var sh = small.offsetHeight;
+
+			var ml = newL;
+			var mt = newT;
+			//计算
+			var xp = ml/sw;
+			var yp = mt/sh;
+
+
+			//获取右侧大图的宽度
+			var bw = bimg.offsetWidth;
+			var bh = bimg.offsetHeight;
+
+			//计算右图移动的距离
+			var nl = bw*xp;
+			var nt = bh*yp;
+
+			//设置css样式
+			bimg.style.left = -nl+'px';
+			bimg.style.top = -nt+'px';
+
+			//计算小div的宽度和高度
+			var bp = big.offsetWidth/bimg.offsetWidth;
+			var sw = small.offsetWidth;
+
+			var bpp = big.offsetHeight/bimg.offsetHeight;
+			var sh = small.offsetHeight;
+
+
+			//计算
+			var mw = sw*bp;
+			var mh = sh*bpp;
+
+			//设置小div的宽度
+			move.style.width = mw+'px';
+			move.style.height = mh+'px';
+		}
+//
+  var href = '{:U('Home/Cart/add',array('goods_id'=>$info['id']))}?qty='
+  function changesrc (obj) {
+	// alert(obj.src);
+	//获取大图的src
+	var big = document.getElementById('big');
+	//修改大图的src
+	big.src = obj.src.replace('50_','');
+  }
+  function plus(){
+	var ipt = document.getElementById('num');
+	ipt.value = parseInt(ipt.value) + 1;
+	if (ipt.value >= {$info.stock} ) {
+	  ipt.value = {$info.stock};
+	}
+	<?php 
+			$stock="select stock from hs_goods where `id`='$goods_id' ";
+		  //  $rows=query($stock);
+			$kc=$rows['0']['stock'];
+
+	 ?>
+	if (ipt.value>= parseInt(<?php echo $kc ?>)) {
+	  ipt.value = parseInt(<?php echo $kc ?>);
+	  alert('不能再加');
+	};
+	var num = $('#num').val();
+	// alert(num)
+	$('#adda').attr('href',href+num);
+  }
+  function minus(){
+	var ipt = document.getElementById('num');
+	ipt.value = parseInt(ipt.value) - 1;
+	if (ipt.value < 1 ) {
+	  ipt.value = 1;
+	}
+
+	var num = $('#num').val();
+	// alert(num)
+	$('#adda').attr('href',href+num);
+  }
+  $('#num').change(function(){
+  		var num = $(this).val();
+  		$('#adda').attr('href',href+num);
+
+
+  });
+
+  </script>
+</block>

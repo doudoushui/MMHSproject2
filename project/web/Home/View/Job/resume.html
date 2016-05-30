@@ -1,0 +1,201 @@
+<extend name="Public/index"/>
+<block name="content">
+<script type="text/javascript" src="__PUBLIC__/Home/jeDate/jedate.js"></script>
+<script src="__PUBLIC__/Home/jscity/jquery-1.11.3.min.js"></script>
+<script src="__PUBLIC__/Home/jscity/Popt.js"></script>
+<script src="__PUBLIC__/Home/jscity/cityJson.js"></script>
+<script src="__PUBLIC__/Home/jscity/citySet.js"></script>
+<style>
+body{ padding:50px 0 0 50px;}
+.datainp{ width:200px; height:30px; border:1px #ccc solid;}
+.datep{ margin-bottom:40px;}
+</style>
+<style type="text/css">
+* { -ms-word-wrap: break-word; word-wrap: break-word; }
+html { -webkit-text-size-adjust: none; text-size-adjust: none; }
+html, body {height:100%;width:100%; }
+html, body, h1, h2, h3, h4, h5, h6, div, ul, ol, li, dl, dt, dd, iframe, textarea, input, button, p, strong, b, i, a, span, del, pre, table, tr, th, td, form, fieldset, .pr, .pc { margin: 0; padding: 0; word-wrap: break-word; font-family: verdana,Microsoft YaHei,Tahoma,sans-serif; *font-family: Microsoft YaHei,verdana,Tahoma,sans-serif; }
+body, ul, ol, li, dl, dd, p, h1, h2, h3, h4, h5, h6, form, fieldset, .pr, .pc, em, del { font-style: normal; font-size: 100%; }
+ul, ol, dl { list-style: none; }
+
+
+._citys { width: 450px; display: inline-block; border: 2px solid #eee; padding: 5px; position: relative; }
+._citys span { color: #56b4f8; height: 15px; width: 15px; line-height: 15px; text-align: center; border-radius: 3px; position: absolute; right: 10px; top: 10px; border: 1px solid #56b4f8; cursor: pointer; }
+._citys0 { width: 100%; height: 34px; display: inline-block; border-bottom: 2px solid #56b4f8; padding: 0; margin: 0; }
+._citys0 li { display: inline-block; line-height: 34px; font-size: 15px; color: #888; width: 80px; text-align: center; cursor: pointer; }
+.citySel { background-color: #56b4f8; color: #fff !important; }
+._citys1 { background-color: #acf;width: 100%; display: inline-block; padding: 10px 0; }
+._citys1 a { width: 83px; height: 35px; display: inline-block; background-color: #f5f5f5; color: #666; margin-left: 6px; margin-top: 3px; line-height: 35px; text-align: center; cursor: pointer; font-size: 13px; overflow: hidden; }
+._citys1 a:hover { color: #fff; background-color: #56b4f8; }
+.AreaS { background-color: #56b4f8 !important; color: #fff !important; }
+</style>
+<style type="text/css">
+    .cur{border:solid 1px green;}
+    .error{border:solid 1px red;}
+  </style>
+  <div class="row">
+   <div class="col-lg-12" style="margin-top:20px;" style="background-color:#e8ded2;">
+       <div class="panel panel-default" style="width:80%;margin-left:10%;" style="background-color:#e8ded2;">
+           <div class="panel-heading">
+               简历信息
+           </div>
+           <div class="panel-body" style="background-color:#fefef2;">
+               <div class="row">
+                   <div class="col-lg-6 col-lg-offset-2">
+                       <form role="form" action="{:U('Home/Job/resinsert')}" method="post" enctype="multipart/form-data">
+                  
+                       <input type="hidden" name="resume_wid" value="<?php echo $_GET['id'];?>">
+                           <div class="form-group">
+                               <label> 姓名 :</label><br><br>
+                               <input name="resume_name" placeholder="请输入你的姓名" class="form-control">
+                           </div>
+                           
+                           <div class="form-group">
+                               <label> 性别 :</label><br><br>
+                               <label class="radio-inline">
+                                   <input type="radio" checked="" value="1" id="optionsRadiosInline1" name="resume_sex">男
+                               </label>
+                               <label class="radio-inline">
+                                   <input type="radio" value="0" id="optionsRadiosInline2" name="resume_sex">女
+                               </label>
+                               <label class="radio-inline">
+                                   <input type="radio" value="2" id="optionsRadiosInline3" name="resume_sex">保密
+                               </label>
+                           </div>
+							             <!--js年月日选择-->
+                            <div class="form-group">
+                               <label> 出生年月日 :</label><br><br>
+                               <div class="form-group" style="width:100%;height:70px;">
+                               	  <p class="datep"><input class="datainp form-control" id="datebut" type="text" placeholder="  请选择" name="resume_birth" readonly>
+                               	  <input type="button" class="btn-sm btn-info" onClick="jeDate({dateCell:'#datebut',isTime:true,format:'YYYY-MM-DD '})" value="打开"></p>
+              								</div>
+              								<script type="text/javascript">
+              								    jeDate({
+              										dateCell:"#dateinfo",
+              										format:"YYYY年MM月DD日",
+              										isinitVal:true,
+              										isTime:true, //isClear:false,
+              										minDate:"2014-09-19 ",
+              										okfun:function(val){alert(val)}
+              									})
+              								</script>
+                           </div>
+                           <!--js城市选择-->
+                           <div class="form-group">
+                               <label> 所在城市 :</label><br><br>
+                               <div class="form-group" style="width:100%;height:35px;">
+                               	<input type="text" id="city" name="resume_address" placeholder="点此选择所在城市" class="form-control" readonly />
+                               </div>
+
+                               <script type="text/javascript">
+                               $("#city").click(function (e) {
+                               	SelCity(this,e);
+                               });
+                               </script>
+                           </div>
+							
+							           <div class="form-group">
+                               <label> 上传照片 :</label><br><br>
+                               <input type="file" name="resume_pic" class="form-control">
+                           </div>
+
+
+                           <div class="form-group">
+                               <label> 手机号 :</label><br><br>
+                               <input type="text" id="phone" name="resume_phone" placeholder="请输入11位手机号" class="form-control">
+                           </div>
+						
+                           <div class="form-group">
+                               <label> 邮箱 :</label><br><br>
+                               <input type="text" name="resume_email" placeholder="请输入合法邮箱账号" class="form-control">
+                           </div>
+
+                          
+                            <div class="form-group">
+                               <label> 个人简介 :</label><br><br>
+                               <textarea name="resume_intro" rows="3" class="form-control" placeholder="输入你的工作经历及个人点评"></textarea>
+                           </div>
+
+                           <button class="btn-sm btn-warning" type="reset">重置</button>
+                           <button class="btn-sm btn-info" type="submit">提交</button>
+                           <!--验证提交内容-->
+                            <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+                            <script type="text/javascript">
+                            //声明全局变量
+                            var CUSER= true;
+                              //绑定表单提交事件
+                              $('form').submit(function(){
+                                CUSER = true;
+                                //丧失焦点事件
+                                $('input').trigger('blur');
+                                //检验是否正确
+                                if(!CUSER){
+                                  return false;
+                                }
+                                //阻止默认行为
+                                return  true;
+                              })
+
+                              //绑定获取焦点事件,显示提示信息
+                              $('input.phone').focus(function(){
+                                //获取属性
+                                var str = $(this).attr('readmin');
+                                //设置文本
+                                $(this).next().html(str).css('color','green');
+                                //设置样式
+                                $(this).attr('class','cur').attr('class','form-control');
+
+                              })
+
+                              //邮箱
+                              $('input[name=resume_email]').blur(function(){
+                                var email = $(this).val();
+                                var reg = /^\w+@\w+\.(com|cn|org|com.cn|net)$/;
+                                if(reg.test(email)){
+                                  $(this).next().html('√').css('color','green');
+                                  //设置样式
+                                  $(this).attr('class','cur').attr('class','resume_email');
+                                }else{
+                                  $(this).next().html('邮箱格式不正确').css('color','red');
+                                  //设置样式
+                                  $(this).addClass('error');
+                                  CUSER = false;
+
+                                }
+                              })
+
+                              //手机号
+                              $('input[name=resume_phone]').blur(function(){
+                                var email = $(this).val();
+                                var reg = /^1\d{10}$/;
+                                if(reg.test(email)){
+                                  $(this).next().html('√').css('color','green');
+                                  //设置样式
+                                  $(this).attr('class','cur').attr('class','form-control');
+                                }else{
+                                  $(this).next().html('手机格式不正确').css('color','red');
+                                  //设置样式
+                                  $(this).addClass('error');
+                                  CUSER = false;
+                                }
+                              })
+
+
+                            </script>
+                       </form>
+                   </div>
+             <!--   http://localhost/Class/s43/project/index.php/Admin/User/add.html
+               http://localhost/Class/s43/project/index.php/Admin/User/add.shtml
+               lamp43/Admin/User/add
+               lamp43/Admin/User/add.html -->
+               </div>
+               <!-- /.row (nested) -->
+           </div>
+           <!-- /.panel-body -->
+       </div>
+       <!-- /.panel -->
+   </div>
+   <!-- /.col-lg-12 -->
+  </div>
+
+</block>

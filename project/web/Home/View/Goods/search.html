@@ -1,0 +1,115 @@
+﻿<extend name="Public/index"/>
+<block name="content">
+  <center><h2 style="color:#ff4466;font-size:40px;">////////////////////////////////////////////品牌热销中/////////////////////////////////////////////</h2></center>
+   
+<!-- {$v.gname} -->
+  <div class="row" > 
+    <foreach name="goodss" item="vo" key="k" >
+      <div class="col-sm-6 col-md-3" style="">
+        <div class="thumbnail">
+          <img src="{$vo.gpic}" alt="..."style="width:100%;height:200px;">
+          <div class="caption sid">
+            <h3 style="margin-left:4px;">{$vo.gname}</h3>
+            <c>价格:{$vo.price}</c>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn-zan" href="{:U('Home/Goods/zan',array('id'=>$vo['id']))}?zan={$vo.zan}"><span class="glyphicon glyphicon-heart" style="color:#ff4466;"></span></a>&nbsp;&nbsp;&nbsp;
+            {$vo.zan}<br><br>
+            <a href="{:U('Home/Contents/index',array('id'=>$vo['id']))}"class="btn btn-info" role="button" style="width:150px;margin-left:50px;"><center>查看详情</center></a>&nbsp;&nbsp;&nbsp;
+            
+          </div>
+        </div>
+       </div>
+      <if condition="$k % 4 eq 3"> 
+      <div style="clear:both"></div>
+    </if>
+    </foreach> 
+   
+  </div>
+   </div>
+<div style="width: 100%;height:auto;margin: 0 auto;">
+  <!-- <li id="item" style="display:block; margin-top:10px;  width: 200px;height: 320px;border:solid 1px #ccc;padding: 10px;text-align:center;">
+     <img src="">
+      <h3>开心宝贝</h3>
+      <p>价格: <span>200</span></p>
+      <p>点赞: <a>1</a></p>
+    </li> -->
+    <style>
+    #ul ul{
+      width:300px;
+      float: left;
+      margin-left:5px;
+     }
+    </style>
+    <!-- 定义四个位置进行数据的存储,依次排开 -->
+    <div id="ul">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+  <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  //alert('jl');
+     //全局配置
+  var p = 1;//页码信息
+  var isLoading = false;
+  var url = "{:U('Home/Goods/ajaxsearch')}";
+  requestGoods();
+  // console.log(p);
+    //封装函数发起请求
+    function requestGoods(){
+      //加载请求时关门
+      isLoading = true;
+      var gname={$v.gname};
+     //发起请求
+      $.get(url,{p:p,gname:gname},function(data){
+        console.log(data);
+       //循环遍历创建元素
+        for (var i = 0; i < data.length; i++) {
+          //创建元素
+          var str=data[i]['id'];
+          var strr=data[i]['zan'];
+          // var newLi = $('#item').clone();
+          var newLi = $('<li id="item" class="" style="display:none; margin-top:10px;  width: 300px;height: 100%;margin-left:4px;border:solid 1px #ccc;padding: 10px;text-align:center;float:left;cleat:both;"><img src="'+data[i]['gpic']+'" style="width:100%;">\n\<h3>'+data[i]['gname']+'</h3>\n\<p style="float:left;">价格: <span>'+data[i]['price']+'</span></p><p style="margin-right:10px;"><a href="zan_edit/id/'+str+'/zan/'+strr+'"><span class="glyphicon glyphicon-heart" style="color:#ff4466;"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i]['zan']+'</a></p><a href="/Home/Contents/index/id/'+str+'"class="btn btn-info" role="button" style="width:150px;">查看详情</a></li>');
+          // alert(newLi);
+          // console.log(newLi);// <h3>'+data[i]['id']+'</h3>\n\
+         //显示
+         
+          newLi.show();
+          //修改元素
+          // newLi.find('h3').html('商品名: '+data[i]['gname']);
+          // newLi.find('img').attr('src',data[i]['gpic']);
+          // newLi.find('span').html('&nbsp;&nbsp;&nbsp;'+data[i]['price']);
+          // newLi.find('a').html('&nbsp;&nbsp;&nbsp;'+data[i]['zan']);
+         //取余插入  一行4条
+          var index = i%4;
+          //插入到ul中
+          $('#ul>ul:eq('+index+')').append(newLi);
+        }
+        //让页码自增
+         p++;
+        //打开
+        isLoading = false;
+      },'json')
+      //return ++p;
+    }
+  //绑定滚动事件
+  $(window).scroll(function(){
+    //检测当前是否正在发起请求
+    if(isLoading){return;}
+    //获取整个文档的高度
+    var sH = $(document).height();
+    // console.log(sH);
+    //获取页面滚动高度
+    var sT = $(window).scrollTop();
+    // console.log(sT);
+    //可视区域的高度
+    var  cH = $(window).height();
+    // console.log(cH);
+    if(sH <= sT+cH+300){
+      requestGoods();
+    }
+  })
+  </script>
+</block>

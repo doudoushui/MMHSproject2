@@ -1,0 +1,251 @@
+<extend name="Public/index"/>
+<block name="content">
+<style type="text/css">
+*{margin:0px; padding:0px;}
+body{/*background:url("__PUBLIC__/Home/jQQlyb/images/bg.jpg");*/background-color: #acf;}
+#qq{width:600px;/*宽*/height:170px;/*高*/background:#fff;/*背景颜色*/
+    margin:50px auto 30px; border-radius:5px;/*Html5 圆角*/}
+#qq p{font-size:12px; color:#666; font-family:"微软雅黑";
+        line-height:45px; text-indent:20px;}
+#qq .message{width:560px; height:70px;margin:0px auto; outline:none;
+            border:1px solid #ddd; /*粗细 风格 颜色*/}
+#qq .But{width:400px;height:35px;margin:15px auto 0px; position:relative;/*相对，参考对象*/}
+#qq .But img.bq{float:left;/*左浮动*/}
+#qq .But span.submit{width:80px;height:30px; background:#ff8140;
+                    display:block; float:right;/*右浮动*/                              
+                    line-height:30px;border-radius:5px;                             
+                    cursor:pointer;/*手指*/color:#fff;font-size:12px;                 
+                    text-align:center;font-family:"微软雅黑";}
+
+/*face begin*/
+#qq .But .face{width:390px; height:160px; background:#fff; padding:10px;
+                border:1px solid #ddd; box-shadow:2px 2px 3px #666;
+                position:absolute;/*绝对定位*/ top:21px; left:15px;
+                display:none;/*隐藏*/}
+#qq .But .face ul li{width:22px;height:22px; 
+                list-style-type:none;/*去掉圆点*/ float:left;
+                margin:2px; cursor:pointer;}
+
+/*msgCon begin*/
+.msgCon{width:1200px;height:500px; margin:0px auto;}
+.msgCon .msgBox{ background:#efefef;
+                 width:1080px;
+                padding:10px; margin-top:10px;}
+.msgCon .msgBox dl{height:60px; border-bottom:1px dotted #ddd;}
+.msgCon .msgBox dl dt{width:50px; height:50px;float:left;}
+.msgCon .msgBox dl dt img{border-radius:25px;}
+.msgCon .msgBox dl dd{width:500px; height:50px;  line-height:50px;float:right; font-size:16px;font-family:"微软雅黑";}
+.msgCon .msgBox .msgTxt{font-size:12px; color:#666; line-height:25px;}
+</style>
+
+	<div style="margin-left:8%;width:20%; background-color:#efefef;" >           
+        <h3 style=" line-height:35px; float:left; ">优秀婚庆公司详情介绍</h3> 
+    </div><br><br><br>
+    <!-- <div style="clear:both"><hr style="width:1150px; margin-left:120px;"></div> -->
+	<div class="container" style="background-color:#efefef;">
+        <p><?php echo htmlspecialchars_decode($res); ?> </p>
+    </div>
+	
+	<div class="container" style="background-color:#efefef;">
+        <table border="1" cellpadding="2" cellspacing="0" id="dataTables-example" class="table table-striped table-bordered table-hover dataTable no-footer " role="grid" aria-describedby="dataTables-example_info">
+        	<thead>
+        	<tr role="row">
+        		<th>优秀婚庆公司名</th>
+        		<th>婚庆公司联系电话</th>
+        		<th>公司地址</th>
+        		<th>公司推荐创建时间</th>
+        	</tr>
+        	</thead>
+        	<tbody>
+        	<tr class="gradeA odd" role="row">
+        		<td>{$info.r_title}</td>
+        		<td>{$info.rphone}</td>
+        		<td>{$info.raddress}</td>
+        		<td>{$info.rtime}</td>
+        	</tr>
+            </tbody>
+        </table>
+        <!-- <h4>如有兴趣可将您的</h4> -->
+        <!-- $id={$info.id}; -->
+        <!-- <a href="{:U('Home/Job/resume',array('id'=>$info['id']))}" class="btn btn-default" type="button" style="margin-top:5px;">投递简历</a> -->
+    </div>  
+    <div style="margin-left:8%;width:100%; background-color:#efefef;" >
+        <h3 style=" line-height:35px; float:left;">评论信息:</h3> 
+    </div><br>
+  <!--   <hr style="width:1150px; margin-left:120px;">
+    <div style="width:1150px;">
+        <h2>用户评论:</h2>
+    </div>
+    <hr style="width:1150px; margin-left:120px;"> -->
+<!--仿QQ空间留言板-->
+<div id="qq" style="background-color:#efefef;width:1080px;height:330px">
+    <p style="font-size:20px;">有什么想告诉大家的?</p>
+    <div class="message" contentEditable='true' style="font-size:15px;width:980px;"></div>
+
+    <div class="But">
+        <img src="__PUBLIC__/Home/jQQlyb/images/dt.jpg" style="width:240px;margin-right:30px;" class='bq'/>
+        <img src="__PUBLIC__/Home/jQQlyb/images/bba_thumb.gif" class='bq'/>
+        <span class='submit'>发表</span>
+        <!--face begin-->
+    <div class="face">
+        <ul>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/zz2_thumb.gif" title="[织]" ></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/horse2_thumb.gif" title="神马]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/fuyun_thumb.gif" title="[浮云]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/geili_thumb.gif" title="[给力]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/wg_thumb.gif" title="[围观]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/vw_thumb.gif" title="[威武]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/panda_thumb.gif" title="[熊猫]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/rabbit_thumb.gif" title="兔子]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/otm_thumb.gif" title="[奥特曼]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/j_thumb.gif" title="[囧]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/hufen_thumb.gif" title="[互粉]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/liwu_thumb.gif" title="[礼物]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/smilea_thumb.gif" title="呵呵]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/tootha_thumb.gif" title="嘻嘻]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/laugh.gif" title="[哈哈]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/tza_thumb.gif" title="[可爱]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/kl_thumb.gif" title="[可怜]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cj_thumb.gif" title="[吃惊]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/shamea_thumb.gif" title="[害羞]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/zy_thumb.gif" title="[挤眼]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/bz_thumb.gif" title="[闭嘴]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/bs2_thumb.gif" title="[鄙视]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/lovea_thumb.gif" title="[爱你]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sada_thumb.gif" title="[泪]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/heia_thumb.gif" title="[偷笑]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/qq_thumb.gif" title="[亲亲]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sb_thumb.gif" title="[生病]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/mb_thumb.gif" title="[太开心]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/ldln_thumb.gif" title="[懒得理你]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/yhh_thumb.gif" title="[右哼哼]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/zhh_thumb.gif" title="[左哼哼]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/x_thumb.gif" title="[嘘]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cry.gif" title="[衰]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/wq_thumb.gif" title="[委屈]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/t_thumb.gif" title="[吐]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/k_thumb.gif" title="[打哈气]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/bba_thumb.gif" title="[抱抱]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/angrya_thumb.gif" title="[怒]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/yw_thumb.gif" title="[疑问]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cza_thumb.gif" title="[馋嘴]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/88_thumb.gif" title="[拜拜]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sk_thumb.gif" title="[思考]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sweata_thumb.gif" title="[汗]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sleepya_thumb.gif" title="[困]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sleepa_thumb.gif" title="[睡觉]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/money_thumb.gif" title="[钱]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sw_thumb.gif" title="[失望]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cool_thumb.gif" title="[酷]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/hsa_thumb.gif" title="[花心]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/hatea_thumb.gif" title="[哼]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/gza_thumb.gif" title="[鼓掌]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/dizzya_thumb.gif" title="[晕]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/bs_thumb.gif" title="[悲伤]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/crazya_thumb.gif" title="[抓狂]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/h_thumb.gif" title="[黑线]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/yx_thumb.gif" title="[阴险]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/nm_thumb.gif" title="[怒骂]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/hearta_thumb.gif" title="[心]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/unheart.gif" title="[伤心]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/pig.gif" title="[猪头]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/ok_thumb.gif" title="[ok]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/ye_thumb.gif" title="[耶]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/good_thumb.gif" title="[good]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/no_thumb.gif" title="[不要]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/z2_thumb.gif" title="[赞]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/come_thumb.gif" title="[来]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/sad_thumb.gif" title="[弱]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/lazu_thumb.gif" title="[蜡烛]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/clock_thumb.gif" title="[钟]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cake.gif" title="[蛋糕]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/m_thumb.gif" title="[话筒]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/weijin_thumb.gif" title="[围脖]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/lxhzhuanfa_thumb.gif" title="[转发]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/lxhluguo_thumb.gif" title="[路过这儿]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/bofubianlian_thumb.gif" title="[bofu变脸]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/gbzkun_thumb.gif" title="[gbz困]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/boboshengmenqi_thumb.gif" title="[生闷气]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/chn_buyaoya_thumb.gif" title="[不要啊]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/daxiongleibenxiong_thumb.gif"title="[dx泪奔]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cat_yunqizhong_thumb.gif" title="[运气中]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/youqian_thumb.gif" title="[有钱]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/cf_thumb.gif" title="[冲锋]"></li>
+           <li><img src="__PUBLIC__/Home/jQQlyb/images/camera_thumb.gif" title="[照相机]"></li>  
+        </ul>
+    </div>
+    <!--face end-->
+    </div>
+</div>
+<!--qq end-->
+<div id="time1"></div>
+<!--msgCon begin-->
+<div class="msgCon" style="height:auto;">
+    <!--循环遍历-->
+    <foreach name="recommendmsgs" item="vo" key="k" >   
+      <div class='msgBox'>
+        <dl>
+        <dt><img src='__PUBLIC__/Home/jQQlyb/images/tx.jpg' width='50' height='50'/></dt>匿名<br>{$vo.rmsgtime}
+        </dl>
+        <div class='msgTxt' style="font-size:15px;">&nbsp;&nbsp;&nbsp;&nbsp;{$vo.recommsg}</div>
+      </div>
+    </foreach>
+    
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/Home/jQQlyb/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    //点击小图片，显示表情
+    $(".bq").click(function(e){
+        $(".face").slideDown();//慢慢向下展开
+        e.stopPropagation();   //阻止冒泡事件
+    });
+
+    //在桌面任意地方点击，他是关闭
+    $(document).click(function(){
+        $(".face").slideUp();//慢慢向上收
+    });
+
+    //点击小图标时，添加功能
+    $(".face ul li").click(function(){
+        var simg=$(this).find("img").clone();
+        $(".message").append(simg);
+    });
+
+    //点击发表按扭，发表内容
+    $("span.submit").click(function(){
+
+        var txt=$(".message").html();
+        if(txt==""){
+            $('.message').focus();//自动获取焦点
+            return;
+        }
+        var myDate = new Date();
+        var time= myDate.toLocaleTimeString();
+
+        $(".msgCon").prepend("<div class='msgBox'><dl><dt><img src='__PUBLIC__/Home/jQQlyb/images/tx.jpg' width='50' height='50'/></dt>匿名<br>"+time+"</dl><div class='msgTxt' style='font-size:15px;'>&nbsp;&nbsp;&nbsp;&nbsp;"+txt+"</div></div>");
+    
+        //获取用户评论信息
+          // var msg = $(.msgBox).html();
+          var url = "{:U('Home/Recommend/ajaxadd')}";
+          // alert(msgTxt);
+          var btn = $(this);
+          var recomid = {$info.id};
+          //ajax
+          $.post(url,{id:recomid,msg:txt},function(data){
+            // console.log(data);
+            if(data == 1){
+              // alert('评论成功');
+             // btn.parents('table').remove();
+            }else{
+              alert('评论失败');
+            }
+          })
+
+    });
+
+</script>
+
+</block>

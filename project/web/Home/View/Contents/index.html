@@ -1,0 +1,186 @@
+<extend name="Public/index"/>
+<block name="content">
+
+<h2 style="color:#ff4466;font-size:40px;"><center></center></h2>
+<div class="container" >
+ <div class="row">
+  <div class="col-md-4 pull-left">
+   <div class="thumbnail s1" style="width:364px;">
+	  <div id="small"style="width:360px;height:360px;position: absolute;left:20px;top:10px;">
+		  <img id="simg" style="width:350px;height:360px;" src=" {$info.gpic}">
+		</div>
+		<div class="caption"style="margin-top:410px;">
+		  <ul id="uimg" style="position:absolute;left:40px;top:380px;"class="row mt10">
+		   <?php foreach ($res as $k => $v): ?>
+				<li style="margin-left:5px;" class="pull-left s3">
+				  <img style="width:50px;height:45px;margin-left:10px;" src="{$v.iname}">
+				</li>
+		   <?php endforeach ?>
+		  </ul>
+		</div>
+	  </div>
+	  </div><!-- pull-left -->
+	<div class="col-md-7 pull-right">
+	  <div id="big" style="width:360px;height:360px;
+		position:absolute;left:206px;
+		top:10px;overflow:hidden;
+		display:none;z-index:999">
+		 <img id="bimg" style="position:absolute;" src="{$info.gpic}" >
+	  </div>
+	<div class="row">
+	   <h4 class="col-md-4"style="line-height:40px;width:200px;background:#e1e1e1;">商品名称:</h4>
+	   <h4 style="margin-left:140px;line-height:40px;background:#e1e1e1;color:#f46;">{$info.gname}</h4><br>
+	</div>
+	<div class="row">
+		<h4 class="col-md-4">商品简介:</h4>
+		<h4 style="">{$info.msg}</h4><br>
+	</div>
+	<div class="row">
+		<h1 class="red col-md-6 pull-left">
+		  <p style="color:#f46;"><span class="glyphicon glyphicon-yen"></span> 
+		  {$info.price}</p>
+		</h1>
+		<h1 class="col-md-4 pull-right">
+		  <a href="{:U('Home/Contents/zan',array('id'=>$info['id']))}?zan={$info.zan}" class="red zan"><span class="glyphicon glyphicon-heart"style="color:#f46;"></span>{$info.zan}</a><br><br>
+		</h1>
+	  </div>
+
+	  <form action="{:U('Home/Cart/index')}" method="get">
+		<!-- 隐藏域商品的ID -->
+		<input type="hidden" name="goods_id" value="{$info.id}">
+		<div class="row mt20">
+		  <h4 class="col-md-2">数量:</h4>
+
+		  <div class="col-md-4">
+			<a onclick="minus()">
+			  <button type="button" class="btn col-md-3"><span class="glyphicon glyphicon-minus"></span></button>
+			</a>
+			<div class="col-md-6">
+			  <input id="num" type="num" name="qty" value="1" maxlength="3" class="form-control text-center">
+			</div>
+
+			<a onclick="plus()">
+			  <button type="button" class="btn col-md-3"><span class="glyphicon glyphicon-plus"></span></button>
+			</a>
+		  </div>
+			<span class="col-md-3 h4">库存:{$info.stock}</span>
+			<span class="col-md-3 h4">销量:{$info.sale}</span><br><br>
+		</div><!-- row mt20 -->
+		<div class="row mt30">
+		  <div style="margin-top:30px;height:5px;background-color:#f46;" class="col-md-12 bg-primary"></div>
+		  <hr style="margin-top:40px;">
+		  <div class="col-md-12 mt10">
+			<p class="col-md-7 col-md-offset-2">
+			  <button type="submit" class="btn btn-lg btn-danger pull-left"><span class="glyphicon glyphicon-hand-up"> 立即购买</span></button>
+			
+			<a id="adda" href="{:U('Home/Cart/add',array('goods_id'=>$info['id']))}?qty=1" class="btn btn-lg btn-info pull-right"  onclick="if(confirm('你确定要加入购物车吗?')==false) return false;"><span class="glyphicon glyphicon-shopping-cart"> 加入购物车</span></a>
+
+			</p>
+		  </div>
+		</div>
+	  </form>
+	</div><!-- pull-right -->
+	  <div class="caption">
+		  <ul class="row mt10">
+		  <?php foreach ($res as $k => $v): ?>
+			<li class="pull-left s3">
+			  <img style="width:800px;center;margin-left:200px;margin-top:20px;" src="{$v.iname}" ><br><br>
+			</li>
+		   <?php endforeach ?>
+		  </ul>
+		</div>
+	 </div>
+  </div>
+</div>
+ <script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript">
+  // 获取元素对象
+		var small = document.getElementById('small');
+		var move = document.getElementById('move');
+		var big = document.getElementById('big');
+		var bimg = document.getElementById('bimg');
+		var simg = document.getElementById('simg');
+
+		//绑定鼠标移动事件
+		simg.onmousemove = function(e){
+			var e = e || event;
+      //获取鼠标在图片上的相对坐标
+      var x = e.clientX - simg.offsetLeft;
+      var y = e.clientY - simg.offsetTop;
+     // alert(x);
+      //大图与小图的比例
+        big.scrollTop = y * 4 - 380;
+        big.scrollLeft = x * 4 - 680;
+        big.style.display = 'block';
+		}
+		//绑定
+		simg.onmouseout = function(){
+			//设置样式
+			//move.style.display = "none";
+			big.style.display = "none";
+		}
+		//获取元素对象
+		var ul = document.getElementById('uimg');
+		//获取ul中的img
+		var imgs = ul.getElementsByTagName('img');
+		//遍历
+		for(var i=0;i<imgs.length;i++){
+			imgs[i].onclick = function(){
+				//获取src属性 控
+				// var src = this.src;//获取的是绝对路径
+				var src = this.getAttribute('src');//获取相对路径
+				// alert(src);
+				//设置src属性
+				simg.src = src;
+				bimg.src = src;
+			}
+		}
+//
+  var href = '{:U('Home/Cart/add',array('goods_id'=>$info['id']))}?qty='
+  //function changesrc (obj) {
+	// alert(obj.src);
+	//获取大图的src
+	//var small = document.getElementById('small');
+	//修改大图的src
+	//small.src = obj.src.replace('50_','');
+ // }
+  function plus(){
+	var ipt = document.getElementById('num');
+	ipt.value = parseInt(ipt.value) + 1;
+	if (ipt.value >= {$info.stock} ) {
+	  ipt.value = {$info.stock};
+	}
+	<?php 
+			$stock="select stock from hs_goods where `id`='$goods_id' ";
+		  //  $rows=query($stock);
+			$kc=$rows['0']['stock'];
+
+	 ?>
+	if (ipt.value>= parseInt(<?php echo $kc ?>)) {
+	  ipt.value = parseInt(<?php echo $kc ?>);
+	  alert('不能再加');
+	};
+	var num = $('#num').val();
+	// alert(num)
+	$('#adda').attr('href',href+num);
+  }
+  function minus(){
+	var ipt = document.getElementById('num');
+	ipt.value = parseInt(ipt.value) - 1;
+	if (ipt.value < 1 ) {
+	  ipt.value = 1;
+	}
+
+	var num = $('#num').val();
+	// alert(num)
+	$('#adda').attr('href',href+num);
+  }
+  $('#num').change(function(){
+  		var num = $(this).val();
+  		$('#adda').attr('href',href+num);
+
+
+  });
+
+  </script>
+</block>
